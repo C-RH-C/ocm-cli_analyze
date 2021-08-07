@@ -3,7 +3,7 @@
 Please, keep in mind you need your ocm-cli working as expected. After that, feel free to download this script and execute.
 
 ```
-$ wget https://raw.githubusercontent.com/waldirio/c.rh.c-tools/master/ocm-cli_analyze/ocm-cli_analyze.sh
+$ wget https://raw.githubusercontent.com/C-RH-C/ocm-cli_analyze/master/ocm-cli_analyze.sh
 $ chmod +x ocm-cli_analyze.sh
 $ ./ocm-cli_analyze.sh 
 Please, inform the cluster id
