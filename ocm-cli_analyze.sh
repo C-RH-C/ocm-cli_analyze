@@ -70,7 +70,6 @@ user_info()
 {
   echo "# User Information"
   echo "---"
-  #echo "$ACCOUNT_MGMT_CMD | jq .metrics[].nodes"
   echo "ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .first_name"
   echo "ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .last_name"
   echo "ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .username"
