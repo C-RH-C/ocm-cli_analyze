@@ -66,6 +66,24 @@ echo "Display Name ...........: $(echo $ACCOUNT_MGMT | jq -r .display_name)"
 echo "C.RH.C Link ............: https://console.redhat.com/openshift/details/s/$CLUSTER_WEB_ID"
 echo
 
+user_info()
+{
+  echo "# User Information"
+  echo "---"
+  echo "ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .first_name"
+  echo "ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .last_name"
+  echo "ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .username"
+  echo "ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .email"
+  echo "ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .organization.ebs_account_id"
+  echo "---"
+  echo "First Name ..........:" $(ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .first_name)
+  echo "Last Name ...........:" $(ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .last_name)
+  echo "Username ............:" $(ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .username)
+  echo "Email ...............:" $(ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .email)
+  echo "EBS Account Number ..:" $(ocm get $(echo $ACCOUNT_MGMT | jq -r .creator.href) | jq -r .organization.ebs_account_id)
+  echo
+}
+
 cluster_node_info()
 {
   echo "# Node Information"
@@ -259,6 +277,7 @@ cluster_alerts()
 
 
 ## Main
+user_info
 cluster_node_info
 cluster_subscription
 managed_cluster
